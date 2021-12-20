@@ -1,0 +1,10 @@
+name: PGF-Backup
+version: 3.0.0
+api-version: 1.18
+authors: [bk, CrimsonDart]
+website: play.pgfmc.net
+main: net.pgfmc.backup.Main
+description: Backups for PGF
+depend: [PGF-Core]
+load: POSTWORLD
+prefix: PGF-Core
