@@ -18,6 +18,8 @@ public class Main extends JavaPlugin {
 		getCommand("backup").setExecutor(new Backup());
 		getCommand("backupconfirm").setExecutor(new Backupconfirm());
 		getCommand("restore").setExecutor(new Restore());
+		
+		new Restart().init(); // Starts auto restart
 	}
 	
 	@Override
