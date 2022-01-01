@@ -11,9 +11,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import net.pgfmc.backup.Main;
-import net.pgfmc.core.CoreMain;
-import net.pgfmc.core.CoreMain.Machine;
-import net.pgfmc.core.Mixins;
+import net.pgfmc.core.misc.CoreMain;
+import net.pgfmc.core.misc.CoreMain.Machine;
+import net.pgfmc.core.misc.Mixins;
 
 public class Backups {
 	
