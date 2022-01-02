@@ -1,2 +1,2 @@
 # Backup
-Backups and auto restarts for PGF.
+Backups for PGF
