@@ -46,8 +46,8 @@
     <dependency>
     	<groupId>com.github.pgfmc</groupId>
     	<artifactId>Core</artifactId>
-    	<version>main-SNAPSHOT</version>
     	<scope>provided</scope>
+    	<version>main-SNAPSHOT</version>
     </dependency>
 </dependencies>
 </project>
