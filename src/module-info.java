@@ -4,5 +4,5 @@ module backup {
 
 	requires core;
 	requires java.logging;
-	requires org.bukkit;
+	requires transitive org.bukkit;
 }
