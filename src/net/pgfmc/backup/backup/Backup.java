@@ -74,7 +74,7 @@ public class Backup implements CommandExecutor {
 	}
 	
 	/**
-	 * Backup command, extra arguments count as part of the notes, arguments optional
+	 * Backup command, extra arguments count as part of the notes, arguments optional 
 	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
