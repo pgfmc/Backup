@@ -29,10 +29,6 @@
         <id>spigot-repo</id>
         <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
-    <repository>
-        <id>pgf-core</id>
-        <url>https://github.com/pgfmc/Core.git</url>
-    </repository>
 </repositories>
 
 <dependencies>
