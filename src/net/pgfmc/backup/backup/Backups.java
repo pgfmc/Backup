@@ -28,7 +28,7 @@ public class Backups {
 	 */
 	public static void backup(Backup b)
 	{
-		if (!(CoreMain.machine == Machine.TEST)) { return; }
+		if (!(CoreMain.machine == Machine.MAIN)) { return; }
 		
 		System.out.println("Creating thread.");
 		
