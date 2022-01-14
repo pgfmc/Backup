@@ -10,9 +10,9 @@ import java.util.stream.Stream;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import net.coreprotect.CoreProtectAPI;
 import net.pgfmc.backup.Main;
 import net.pgfmc.core.CoreMain;
-import net.pgfmc.core.CoreMain.Machine;
 import net.pgfmc.core.Mixins;
 
 public class Backups {
@@ -28,9 +28,24 @@ public class Backups {
 	 */
 	public static void backup(Backup b)
 	{
-		if (!(CoreMain.machine == Machine.MAIN)) { return; }
+		// if (!(CoreMain.machine == Machine.MAIN)) { return; }
 		
-		System.out.println("Creating thread.");
+		System.out.println("Purging");
+		// Purge old CoreProtect data
+		CoreProtectAPI co = Main.plugin.getCoreProtect();
+		if (co != null) { co.performPurge(20160); } // 14 days
+		
+		System.out.println("Purging 2.0");
+		// Remove log files
+		File logs = new File(Main.plugin.getDataFolder().getAbsolutePath() + File.separator + "logs");
+		for(File f: logs.listFiles())
+		{
+			if (!f.isDirectory())
+			{
+				System.out.println("Deleting log: " + f.getName());
+				f.delete();
+			}
+		}
 		
 		/*
 		 * Save the server before backing up
@@ -38,14 +53,15 @@ public class Backups {
 		 */
 		Bukkit.getScheduler().callSyncMethod(Main.plugin, () -> Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "save-all"));
 		
+		System.out.println("Creating thread.");
 		/*
 		 * Creates a new thread to run this on, makes it so server doesn't crash lol (jk idk how it works)
 		 */
 		Thread thread = new Thread() {
 			public void run() {				
-				try {
+				try {					
 					String sourceDir = CoreMain.pwd;
-					String destDir = CoreMain.backupDir + b.backup.get("date") + File.separator;
+					String destDir = "C:\\Users\\bk\\Desktop\\BACKUPS";//CoreMain.backupDir + b.backup.get("date") + File.separator;
 					File source = new File(sourceDir);
 					File dest = new File(destDir);
 					dest.mkdirs();
@@ -108,6 +124,7 @@ public class Backups {
 		
 		thread.start();
 	}
+	
 	
 	public static void restore()
 	{
