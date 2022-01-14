@@ -29,7 +29,7 @@ public class Backup implements CommandExecutor {
 	/*
 	 * List of all Backup objects for BackupConfirm.java
 	 */
-	public static List<Backup> BACKUPS = new ArrayList<Backup>();
+	protected static List<Backup> BACKUPS = new ArrayList<Backup>();
 	
 	/*
 	 * Information for the YML file
